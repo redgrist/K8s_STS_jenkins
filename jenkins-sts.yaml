@@ -83,7 +83,8 @@ spec:
       terminationGracePeriodSeconds: 5 
       containers:
         - name: jenkins
-          image: jenkins/jenkins:lts
+          image: jenkins/jenkins:latest
+          imagePullPolicy: Always
           resources:
             # limits:
             #   memory: "2Gi"
