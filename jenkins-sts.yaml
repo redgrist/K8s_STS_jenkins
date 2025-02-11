@@ -58,7 +58,7 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - k8sw3
+                      - k8sw1
             - weight: 80
               preference:
                 matchExpressions:
@@ -72,7 +72,7 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - k8sw1
+                      - k8sw3
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
