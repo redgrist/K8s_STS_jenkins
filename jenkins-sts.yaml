@@ -14,10 +14,9 @@ spec:
     protocol: TCP
     targetPort: 8080
   externalIPs:
-    - 192.168.22.141
-    - 192.168.22.142
-    - 192.168.22.143
-    - 192.168.22.144
+    - 192.168.22.161
+    - 192.168.22.162
+    - 192.168.22.163
 --- 
 
 apiVersion: apps/v1
@@ -48,9 +47,8 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - k8sw1
-                      - k8sw2
-                      - k8sw3
+                      - uk8sw1
+                      - uk8sw1
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 100
               preference:
@@ -58,21 +56,14 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - k8sw1
-            - weight: 80
-              preference:
-                matchExpressions:
-                  - key: kubernetes.io/hostname
-                    operator: In
-                    values:
-                      - k8sw2
+                      - uk8sw1
             - weight: 50
               preference:
                 matchExpressions:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - k8sw3
+                      - uk8sw2
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
