@@ -71,6 +71,15 @@ spec:
           labelSelector:
             matchLabels:
               app: jenkins-server
+      tolerations:
+        - key: "node.kubernetes.io/not-ready"
+          operator: "Exists"
+          effect: "NoExecute"
+          tolerationSeconds: 30
+        - key: "node.kubernetes.io/unreachable"
+          operator: "Exists"
+          effect: "NoExecute"
+          tolerationSeconds: 30
       terminationGracePeriodSeconds: 5 
       containers:
         - name: jenkins
