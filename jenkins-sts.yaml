@@ -48,7 +48,7 @@ spec:
                     operator: In
                     values:
                       - uk8sw1
-                      - uk8sw1
+                      - uk8sw2
           preferredDuringSchedulingIgnoredDuringExecution:
             - weight: 100
               preference:
@@ -56,14 +56,14 @@ spec:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - uk8sw1
+                      - uk8sw2
             - weight: 50
               preference:
                 matchExpressions:
                   - key: kubernetes.io/hostname
                     operator: In
                     values:
-                      - uk8sw2
+                      - uk8sw1
       topologySpreadConstraints:
         - maxSkew: 1
           topologyKey: kubernetes.io/hostname
@@ -110,4 +110,4 @@ spec:
       volumes:
         - name: jenkins-data
           persistentVolumeClaim:
-              claimName: jenkins-pvc-claim
+              claimName: jenkins-data
