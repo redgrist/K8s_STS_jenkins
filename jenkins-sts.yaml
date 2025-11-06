@@ -86,12 +86,12 @@ spec:
           image: jenkins/jenkins:latest
           imagePullPolicy: Always
           resources:
-            limits:
-              memory: "2Gi"
-              cpu: "2"
             requests:
-              memory: "4Gi"
+              memory: "2G"
               cpu: "4"
+            limits:
+              memory: "6G"
+              cpu: "6"
           ports:
             - name: httpport
               containerPort: 8080
